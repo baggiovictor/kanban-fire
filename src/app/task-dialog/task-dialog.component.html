@@ -1,0 +1,26 @@
+<mat-form-field>
+  <mat-label>Titulo</mat-label>
+  <input matInput cdkFocusInitial [(ngModel)]="data.task.title" />
+</mat-form-field>
+
+<mat-form-field>
+  <mat-label>Descricao</mat-label>
+  <textarea matInput [(ngModel)]="data.task.description"></textarea>
+</mat-form-field>
+
+<div mat-dialog-actions>
+  ...
+  <button
+    *ngIf="data.enableDelete"
+    mat-fab
+    color="primary"
+    aria-label="Deletar"
+    [mat-dialog-close]="{ task: data.task, delete: true }">
+    <mat-icon>delete</mat-icon>
+  </button>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="cancel()">Cancelar</button>
+  <button mat-button [mat-dialog-close]="{ task: data.task }">Confirmar</button>
+</div>
